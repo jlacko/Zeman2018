@@ -7,8 +7,8 @@ library(RColorBrewer)
 library(leaflet)
 
 # osoby a obsazení...
-src <- read.csv2(file = "src/prezident.csv", stringsAsFactors = F) # výsledky voleb
-pecoco <- read.csv2(file = "src/pecoco.csv", stringsAsFactors = F) # číselník obcí
+src <- read.csv2(url("https://raw.githubusercontent.com/jlacko/Zeman2018/master/src/prezident.csv"), stringsAsFactors = F) # výsledky voleb
+pecoco <- read.csv2(url("https://raw.githubusercontent.com/jlacko/Zeman2018/master/src/pecoco.csv"), stringsAsFactors = F) # číselník obcí
 
 kandidati <- data_frame(cislo = 1:9,
                         jmeno = c("Mirek Topolánek",
@@ -37,7 +37,7 @@ obce <- obce_polygony %>%
   select(KOD = KOD_OBEC,
          NAZEV = NAZ_OBEC)
 
-casti <- casti %>%
+casti <- casti %>% # městské části pouze na vývojové RCzechia (zatím...)
   select(KOD, NAZEV)
 
 podklad <- obce %>% # všechny obce
