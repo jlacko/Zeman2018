@@ -48,7 +48,7 @@ metropole <- c("Praha", "Brno", "Plzeň", "Ostrava")
 mesta <- obce_polygony[obce_polygony$NAZ_OBEC %in% metropole, ]
 
 mapa <- tm_shape(republika) + tm_borders(col = "grey30", lwd = 2) +
-  tm_shape(podklad) + tm_fill(col = "pct_zeman" , palette = "YlOrBr", title = "Zemanův zisk") + 
+  tm_shape(podklad) + tm_fill(col = "pct_zeman" , palette = "YlOrBr", title = "Zemanův zisk", id = "NAZEV") + 
   tm_shape(mesta) + tm_borders(col = "grey30", lwd = 1.5) +
   tm_style_white("Volební výsledky", frame = F, 
                  legend.format = list(text.separator =  "-", 
