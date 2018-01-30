@@ -42,7 +42,8 @@ casti <- casti %>% # městské části pouze na vývojové RCzechia (zatím...)
 
 podklad <- obce %>% # všechny obce
   rbind(casti) %>% # plus všechny části
-  inner_join(druheKolo) # přilinkovat pouze ty, které mají volební výsledek
+  inner_join(druheKolo) %>% # přilinkovat pouze ty, které mají volební výsledek
+  st_simplify(dTolerance = 0.0001) # zjednodušit, ať to dobíhá..
 
 metropole <- c("Praha", "Brno", "Plzeň", "Ostrava")
 mesta <- obce_polygony[obce_polygony$NAZ_OBEC %in% metropole, ]
