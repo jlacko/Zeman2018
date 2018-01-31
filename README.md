@@ -2,7 +2,7 @@
 
 Malé cvičení na vizualizaci, které si klade dva cíle:  
 * ukázat, jak jsou v Zemích českých a na Moravě rozložení voliči Miloše Zemana
-* ukázat, jak snadné je v prostředí #rstats vytvořit použitelnou mapovou vizualizaci
+* ukázat, jak snadné je v prostředí RStudia vytvořit interaktivní mapovou vizualizaci
 
 <p align="center">
   <img src="https://github.com/jlacko/Zeman2018/blob/master/img/big.png?raw=true" alt="Mapa v malém měřítku"/>
