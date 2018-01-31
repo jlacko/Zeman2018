@@ -16,7 +16,7 @@ Zdrojový kód pro tvorbu mapy je `prezident.R`, výsledek je [`zeman.html`](htt
 
 Pracuju s vývojovu verzí packge *RCzechia*, která je k dispozici zde na GitHubu (verze pro *sf* je datově hotová, ještě pracuji na dokumentaci).
 ```r
-devtools:install_github("jlacko/RCzechia", ref = "sf-dev")
+devtools::install_github("jlacko/RCzechia", ref = "sf-dev")
 
 ```
 
