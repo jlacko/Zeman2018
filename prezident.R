@@ -43,10 +43,13 @@ podklad <- obce %>% # všechny obce
   rbind(casti) %>% # plus všechny části
   inner_join(druheKolo) %>% # přilinkovat pouze ty, které mají volební výsledek
   st_transform(5513) %>% # jeden Křovák vládne všem! (a je v metrech)
-  st_simplify(dTolerance = 50) # přesnost 50 metrů je pro Pražáky dobrý...
+  st_simplify(dTolerance = 150) # přesnost 150 metrů je pro Pražáky dobrý...
 
 metropole <- c("Praha", "Brno", "Plzeň", "Ostrava")
-mesta <- obce_polygony[obce_polygony$NAZ_OBEC %in% metropole, ]
+mesta <- obce_polygony[obce_polygony$NAZ_OBEC %in% metropole, ] %>%
+  st_transform(5513) %>% # jeden Křovák vládne všem! (a je v metrech)
+  st_simplify(dTolerance = 150) # přesnost 150 metrů je pro Pražáky dobrý...
+  
 
 mapa <- tm_shape(republika) + tm_borders(col = "grey30", lwd = 2) +
   tm_shape(podklad) + tm_fill(col = "pct_zeman" , palette = "YlOrBr", title = "Zemanův zisk", id = "NAZEV") + 
