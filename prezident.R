@@ -1,4 +1,3 @@
-# úvodní orientace ve volebních výsledcích prezidentských voleb
 library(sf)
 library(tidyverse)
 library(RCzechia)
@@ -43,7 +42,8 @@ casti <- casti %>% # městské části pouze na vývojové RCzechia (zatím...)
 podklad <- obce %>% # všechny obce
   rbind(casti) %>% # plus všechny části
   inner_join(druheKolo) %>% # přilinkovat pouze ty, které mají volební výsledek
-  st_simplify(dTolerance = 0.0001) # zjednodušit, ať to dobíhá..
+  st_transform(5513) %>% # jeden Křovák vládne všem! (a je v metrech)
+  st_simplify(dTolerance = 50) # přesnost 50 metrů je pro Pražáky dobrý...
 
 metropole <- c("Praha", "Brno", "Plzeň", "Ostrava")
 mesta <- obce_polygony[obce_polygony$NAZ_OBEC %in% metropole, ]
@@ -60,5 +60,6 @@ mapa <- tm_shape(republika) + tm_borders(col = "grey30", lwd = 2) +
   tm_view(basemaps = "Stamen.Toner")
 
 tmap_mode("view")
-print(mapa)
+save_tmap(mapa, filename = "zeman.html")
+
   
