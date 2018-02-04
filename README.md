@@ -14,9 +14,9 @@ Zdrojový kód pro tvorbu mapy je `prezident.R`, výsledek je [`zeman.html`](htt
   <img src="https://github.com/jlacko/Zeman2018/blob/master/img/small.png?raw=true" alt="Mapa v malém měřítku"/>
 </p>
 
-Pracuju s vývojovu verzí packge *RCzechia*, která je k dispozici zde na GitHubu (verze pro *sf* je datově hotová, ještě pracuji na dokumentaci).
+Pracuju s  package *RCzechia*, která je k dispozici zde na GitHubu, ale není a nevím jestli kdy bude na CRAN.
 ```r
-devtools::install_github("jlacko/RCzechia", ref = "sf-dev")
+devtools::install_github("jlacko/RCzechia")
 
 ```
 
